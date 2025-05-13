@@ -1,17 +1,18 @@
-# Używamy oficjalnego obrazu Pythona
+# Bazowy obraz z Pythona
 FROM python:3.9-slim
 
-# Ustawienie katalogu roboczego w kontenerze
+# Ustawienie katalogu roboczego
 WORKDIR /app
 
-# Kopiowanie plików aplikacji do kontenera
-COPY . .
+# Skopiowanie plików do kontenera
+COPY . /app
 
-# Instalacja wymaganych pakietów
-RUN pip install --no-cache-dir -r requirements.txt
+# Instalacja zależności
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
 
-# Definiowanie portu, na którym aplikacja będzie nasłuchiwać
-EXPOSE 8080
+# Wystawienie portu dla aplikacji Flask
+EXPOSE 5000
 
-# Komenda uruchamiająca aplikację
+# Uruchomienie aplikacji
 CMD ["python", "app.py"]
