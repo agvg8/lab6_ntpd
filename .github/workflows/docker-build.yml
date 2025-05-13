@@ -27,4 +27,4 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ secrets.DOCKER_USERNAME }}/ml-ci-cd-app:latest
+        tags: ghcr.io/${{ secrets.GHCR_USERNAME }}/ml-ci-cd-app:latest
